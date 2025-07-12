@@ -19,21 +19,22 @@ There are three primary components which comprise the GAP algorithm, and underwr
 
 <h3>Features</h3>
 
- - Lack of Reward Function
+ - _Lack of Reward Function_: Because the SAS model collects observed and prompted information- actions taken by the agent, and operates entirely on probabilities derived from these instance counts, no reward function is required to train GAP agents when maximizing probability or minimizing steps-to-goal. This makes the agent free of the bias and risk of poor design of an objective function. However, the algorithm can be used with costs, such as minimum expectation of cose (probability and cost in tandem), energy, time, or similar.
 
- - Goal Agnosticism
+ - _Goal Agnosticism_: Because the algorithm's model counts SAS transitions, all such can be used to determine paths between any observed, non-disjoint states. As such, while we often specify a goal for termination of epochs, any reachable state can be sought using the same training data. Notably, this information (states and actions) requires no further input than standard SA model learners
  
- - Optimality
- 
- - Bounded Time Performance
- 
- - Computational Efficiency
- 
- - Robustness to Error
- 
- - Abstraction Tolerance
- 
- - Reciprocal Convergence
+ - _Optimality_: Addressed in detail in section **4.1 Optimality of GAP plans** in the attached paper, the combination of embedding optimality of the Array/Linked-lists and Dijkstra's algorithm ensures that plans produced by the GAP algorithm are stochastically optimal.
+
+ - _Bounded Time Performance_: Addressed in detail in section _4.2.3 Derivation of Bounded Time Performance_
+ in the attached paper, the Sequence Inference algorithm remits to analysis of the choice sequences of the agent as a MDP, from which demonstrates the probability of the system reaching the goal state increasing exponentially.
+
+ - _Computational Efficiency_: Addressed in sections **3.3 Subgraph Maintenence Algorithm** and **3.4 Sequence Inference Algorithm**, the maintenance of the SAS hypergraph and maximal likelihood slide are constant bounded, and the inference algorithm is bounded in quadratic time, ensuring low-order polynomial computation time.
+
+ - _Robustness to Error_: Addressed in detail in section **4.3 Analysis of Robustness under perturbation** the agent's dynamics under the MDP model can be used to hypothesize a further transfer function representing perturbations of the system, and goal convergance can be shown to hold under broad conditions.
+
+ - _Abstraction Tolerance_: Addressed in section **4.4 Impact of Perturbed State on Performance**, the transfer functions previously mentioned can also be used examine state abstraction models on performance, and an exponential bounding measure for such derived, indicating tolerance of relatively aggressive abstractions.
+
+ - _Reciprocal Convergence_: Addressed in section **4.5 Learning Convergence**, using the same mechanism used for error and abstraction analysis, the agent's learning is modeled as a progressively improving error mask, and goal convergence rates are shown to be statistically reciprocal as learning progresses.
 
    
 <h3>Examples</h3>
