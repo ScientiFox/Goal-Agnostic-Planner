@@ -17,9 +17,28 @@ There are three primary components which comprise the GAP algorithm, and underwr
 
 - _Array/Sorted Linked Lists_: This data structure represents the SAS hypergraph as a collection of array-indexed sorted linked lists, allowing reflexive referencing between SAS triplets and making a maximum-probability graph slice of the hypergraph always available.
 
+<h3>Features</h3>
+
+ - Lack of Reward Function
+
+ - Goal Agnosticism
+ 
+ - Optimality
+ 
+ - Bounded Time Performance
+ 
+ - Computational Efficiency
+ 
+ - Robustness to Error
+ 
+ - Abstraction Tolerance
+ 
+ - Reciprocal Convergence
+
+   
 <h3>Examples</h3>
 
-- _Strips-type Problems_:
+- _Strips-type Problems_: Learning a problem form typical of traditional hierarchical AI planners, to demonstrate essential functionality of the algorithm. Additionally includes the injection of random error to illustrate robustness to these deviations.
 
 - _TAXI and MAZE Problems_:
 
