@@ -17,8 +17,6 @@ There are three primary components which comprise the GAP algorithm, and underwr
 
 - _Array/Sorted Linked Lists_: This data structure represents the SAS hypergraph as a collection of array-indexed sorted linked lists, allowing reflexive referencing between SAS triplets and making a maximum-probability graph slice of the hypergraph always available.
 
-<h3>Features</h3>
-
 <h3>Examples</h3>
 
 - _Strips-type Problems_:
