@@ -39,16 +39,31 @@ There are three primary components which comprise the GAP algorithm, and underwr
    
 <h3>Examples</h3>
 
-- _Strips-type Problems_: Learning a problem form typical of traditional hierarchical AI planners, to demonstrate essential functionality of the algorithm. Additionally includes the injection of random error to illustrate robustness to these deviations.
+- _Strips-type Problems_: Learning a problem form typical of traditional hierarchical AI planners, to demonstrate essential functionality of the algorithm. Additionally includes the injection of random error to illustrate robustness to these deviations. These tests demonstrate strong agreement with the reciprocal learning pattern postulated by theory, as well as the exponential bounding on error tolerance. (Section **5.2 STRIPS-type Problems**)
 
-- _TAXI and MAZE Problems_:
+- _TAXI and MAZE Problems_: Learning a problem which is a hierarchical hybrid of the TAXI problem (navigating to passengers and transporting them to destinations with obstacles) and MAZE problems (successfully navigating within a highly nonlinear space). Examinations of low complexity mazes (obstacles) and high complexity mazes (actual mazes and poorly conditioned ones) demonstrate the same reciprocal learning law, functionality under state abstractions, hierarchical learning, error robustness, the abstraction quality metric, and relativistic state learning- the mazes are randomly generated and learning is local. The agent does not learn _a_ maze, it learns maze navigation based on local features. (Section **5.3 Maze/TAXI Domain**)
 
-- _Tower of Hanoi Puzzle_:
+- _Tower of Hanoi Puzzle_: Learning to solve the Tower of Hanoi puzzle, another hierarchical problem, but with more rigid state space and a wider action space than previous problems. Demonstrates continued fit of the reciprocal learning law, error robustness, abstraction tolerance, providing analysis over increasing complexity space responses, and validating the relation between error and abstraction budgets on performance. (Section **5.4 Tower of Hanoi Domain**)
 
-- _Blocksworld Problem_:
+- _Blocksworld Problem_: A simple sorting problem, similar to that of the Tower of Hanoi, but with fewer state space restrictions, and constining the Sussman Anomaly as a sub-problem. Demonstrates acutely rapid training and avoidance of the Sussman anomaly. (Section **B.1 Blocksworld**)
 
-- _Binary Addition Problem_:
+- _Binary Addition Problem_: Another simple problem, learning to add together binary digits correctly. Also demonstrates very rapid learning, and in this case on another fully relative problem- the agent has a bit setting, carry bit value, and a pointer increment function, it does not operate over bit-length digits. (Section **B.2 Binary Addition**)
 
+<h3>Algorithm Augmentations</h3>
+
+In addition to the basic features and examples outlined here, there are also several augmentations which we have experimented with on the GAP algorithm. Some are addressed in experiments in the repository, as well as discussed in the pertinent sections in the paper, or in **Appendix A. GAP Algorithm Modifications**. We overview these here, too.
+
+- _Implicit learning rate_:
+
+- _Alternative choice planning_:
+
+- 
+
+- Generalized A* heuristics
+
+- Augmented states
+
+- Tabu search training
 
 
 
