@@ -9,16 +9,27 @@ This repository contains a library implementing the GAP algorithm, pDij_type2.py
 The descriptions below are, therefor, high-level overviews.
 
 <h3>Mechanisms</h3>
+There are three primary components which comprise the GAP algorithm, and underwrite its efficacy, Dijkstra's algorithm for maximum-likelihood path planning, the State/Action/State hypergraph, and Sorted Array/Linked-lists.
+
+- _State/Action/State Hybergraph_: This learning model records instances of actions causing transitions between states. Because it is presumed that many actions can be taken from a given state, and each action may have more than onr result, depending on conditions, this structure represents a hypergraph instead of a standard graph.
+
+- _Dijkstra's Algorithm for Maximum-likelihood path planning_: This application treats the action mediated transitions between actions as probabilistic, and uses joint probability maximization as the measure for identification of an optimal path, defined by the actions most likely to effect any given state transition.
+
+- _Array/Sorted Linked Lists_: This data structure represents the SAS hypergraph as a collection of array-indexed sorted linked lists, allowing reflexive referencing between SAS triplets and making a maximum-probability graph slice of the hypergraph always available.
 
 <h3>Features</h3>
 
-<h3></h3>
+<h3>Examples</h3>
 
-<h3></h3>
+- _Strips-type Problems_:
 
-<h3></h3>
+- _TAXI and MAZE Problems_:
 
+- _Tower of Hanoi Puzzle_:
 
+- _Blocksworld Problem_:
+
+- _Binary Addition Problem_:
 
 
 
