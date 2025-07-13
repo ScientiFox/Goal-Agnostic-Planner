@@ -53,20 +53,17 @@ There are three primary components which comprise the GAP algorithm, and underwr
 
 In addition to the basic features and examples outlined here, there are also several augmentations which we have experimented with on the GAP algorithm. Some are addressed in experiments in the repository, as well as discussed in the pertinent sections in the paper, or in **Appendix A. GAP Algorithm Modifications**. We overview these here, too.
 
-- _Implicit learning rate_:
+- _Implicit learning rate_: The GAP algorithm does not have an explicit learning rate as a parameter which can be set, but it is possible to alter the time sensitivty of learning by the inclusion of an approximation of a moving average window, the width of which is an approximant of a learning rate
 
-- _Alternative choice planning_:
+- _Alternative choice planning_: The core GAP algorithm assumes action selection is made by picking the next action in the maximum likelihood chain between the current state and the goal. An alternative used in amny ML systems, selecting actions probabilistically, weighted by quality or probability of success, can also be applied, though it effects a shift in the explore/exploit behavior of the system.
 
-- 
+- _In-situ transfer functions_: An alternative to learning an entire hypergraph of transitions is to supply a subset of transitions ahead of time, either as a partial hypergraph or as a direct calculation function. This would model remaining, learning-oriented segments of the graph as smaller learning problems, with the expected attendant rate benefits, as well as additional certainty in transition probabilities, albeit at risk of bias.
 
-- Generalized A* heuristics
+- _Generalized A* heuristics_: Given that we use Dijkstra's algorithm as the core of the inference mechanism, it stands to reason that A* would have superior performance. Although introducing an external heuristic is an opportunity to introduce bias, and is an influence similar to a quality function, section **A.4 Generalized Heuristics for A** discusses the possibility of structurally-based heuristics which do not present this risk, and are similar to learning re-use. 
 
-- Augmented states
+- _Augmented states_: Similar to the mechanism of temporal chaining in the Murin project, it is possible to use prior-state and prior-action based vector augmentations as input states for GAP algorithms, modelable as another form of state abstraction. Although less of a dramatic learning and capability boost for GAP, which already includes a temporal mechanism, experiments with the Tower of Hanoi and TAXI/MAZE problems include successful explorations of this. 
 
-- Tabu search training
+- _Tabu search training_: Because the GAP agents must spend at least a small initial portion of training exploring purely, when they don't have a sufficiently developed hypergraph to locate the goal state they seek, it is critical that search be as maximall spanning as possible. A technique we apply in the STRIPS, TAXI/MAZE, and Tower of Hanoi problems, all, is a Tabu table- the agent keeps a running list of state/action pairs, and in any state where it cannot find a path to a goal, picks actions instead by uniform sampling across the Tabu table, which is highly effective for initial phases.
 
-
-
-
-
+- _Replanning_: Because the GAP algorithm is fully goal independent and also de-facto start state independent, we automatically have subproblem optimality. Because of this, we can assume that, when slipping off the optimal path because of stochastic factors, the planning from the current state  As a result, if taking the overlap of all prior solutions found, we need only plan to reach a state previously planned for, and the plan from there remains valid, as if we had observed an instance that would change that plan, the planning would necessarily have preceeded that state
 
